@@ -8,10 +8,15 @@
 </div>
 
 <article class="article">
-  <input type="text" [(ngModel)] = "titre">
-    <h1 class="article-title text-center"><a href=""> {{ titre}}</a></h1>
-    <p class="article-meta text-center">Promo 8 HB <a href="#">Rama</a></p>
+
+    <h1 class="article-title text-center"><a href=""> {{ titre | uppercase}}</a></h1>
+    <h2 class="article-meta text-center"> {{ promo | slice: 0: 5 | uppercase}} <a href="#"> {{ prenom | author}}</a></h2>
+    <h4>{{ datePublication | date:"dd MMMM yyyy":"fr" }}
+    </h4> 
+    <h2> Ma CB  {{"1245 6789 5676 7897" | cb:4}}</h2>
     <p class="text-lead text-center"> On essaie d'être des pros </p>
+
+    <h4>{{ 1000 | ttc}}</h4>
     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio harum cumque autem ad! Facere quas nihil, voluptas at eligendi voluptatibus animi blanditiis veritatis porro dolorum! Quasi quae repudiandae doloremque saepe.
     Iure accusamus sapiente voluptatibus minima unde cupiditate quo libero repellat accusantium esse, similique officiis, porro quod? Dignissimos laboriosam quia, ut beatae veniam vitae. Consequuntur corporis nemo saepe dolorem quod pariatur.
     Ad sed, nam deserunt repellendus aperiam consequuntur sapiente eum soluta, architecto dicta unde at officiis suscipit sint voluptates qui voluptatum ipsum doloremque ut. Maxime hic eligendi, corporis eius sint fugiat?
