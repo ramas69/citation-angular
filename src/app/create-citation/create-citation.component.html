@@ -1,0 +1,26 @@
+<!-- 
+<form style="margin-top: 5em">
+    <div class="form-group">
+        <label for="paperInputs1">Auteur</label>
+        <input type="text" placeholder="Nice input" name="auteur" [(ngModel)]="citations.auteur">
+      </div>
+      <div class="form-group">
+        <label for="paperInputs1">Citation</label>
+        <textarea type="text" placeholder="Nice input" name="citation" [(ngModel)]="citations.citation"> </textarea>
+      </div>
+      <button class="btn" type="submit" (click)="onSubmit()">Créer</button>
+</form>
+ -->
+
+
+<form style="margin-top: 5em" #formCitation ="ngForm" (ngSubmit) = "onSubmit(formCitation)">
+    <div class="form-group">
+        <label for="paperInputs1">Auteur</label>
+        <input type="text" placeholder="Nice input" name="auteur" [(ngModel)]="auteur">
+      </div>
+      <div class="form-group">
+        <label for="paperInputs1">Citation</label>
+        <textarea type="text" placeholder="Nice input" name="citation" [(ngModel)]="citation"> </textarea>
+      </div>
+      <button class="btn" type="submit">Créer</button>
+</form>
