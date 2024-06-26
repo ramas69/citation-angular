@@ -1,0 +1,14 @@
+
+
+<form style="margin-top: 5em" (ngSubmit) ="onSubmit()" [formGroup]="form" >
+    <div class="form-group">
+        <label for="paperInputs1">Auteur</label>
+        <input type="text" placeholder="Nice input" name="auteur" formControlName="auteur">
+      </div>
+      <div class="form-group">
+        <label for="paperInputs1">Citation</label>
+        <textarea type="text" placeholder="Nice input" name="citation" formControlName="citation"> </textarea>
+      </div>
+      <button class="btn" type="submit">Créer</button>
+</form>
+

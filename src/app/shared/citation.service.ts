@@ -15,5 +15,6 @@ export class CitationService {
 
   postCitation(citation:citationInterface){
     citationMock.push(citation);
+  
   }
 }
