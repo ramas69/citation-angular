@@ -2,8 +2,16 @@
 
 <form style="margin-top: 5em" (ngSubmit) ="onSubmit()" [formGroup]="form" >
     <div class="form-group">
+      <p> message :  {{ form.controls['auteur'].errors | json }}</p>
         <label for="paperInputs1">Auteur</label>
         <input type="text" placeholder="Nice input" name="auteur" formControlName="auteur">
+        <div>
+          @if (form.controls['auteur'].invalid && form.controls['auteur'].touched || form.controls['auteur'].dirty) {
+            @if ( form.controls['auteur'].errors?.['minlength']) {
+              <div class="alert alert-danger" role="alert"> trop court</div>
+            }
+          }
+        </div>
       </div>
       <div class="form-group">
         <label for="paperInputs1">Citation</label>

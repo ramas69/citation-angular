@@ -1,4 +1,6 @@
-<div *ngFor="let citation of citations" class="card" style="width: 20rem; margin-top: 2em">
+<app-create-reactive-citation></app-create-reactive-citation>
+<div class="row">
+  <div *ngFor="let citation of citations" class="card col4" style="width: 20rem; margin-top: 2em; ">
     <div class="card-body">
       <h4 class="card-title">{{ citation.auteur}}</h4>
       <p class="card-text"> {{citation.citation}}.</p>
@@ -6,3 +8,5 @@
      
     </div>
   </div>
+
+</div>

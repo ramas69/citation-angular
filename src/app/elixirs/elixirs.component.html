@@ -1,0 +1,6 @@
+<div style="margin-top:5em">
+    <input type="text" [(ngModel)] = "terms" name ="terms">
+    <ul *ngFor = "let elixir of elixirs | search:terms  ">
+        <li>{{ elixir.name }}</li>
+    </ul>
+</div>
