@@ -2,14 +2,22 @@
 
 <form style="margin-top: 5em" (ngSubmit) ="onSubmit()" [formGroup]="form" >
     <div class="form-group">
+      <!-- juste pour voir les actions du champ input. s'il y'a des erreurs le massage affiche true-->
       <p> message :  {{ form.controls['auteur'].errors | json }}</p>
         <label for="paperInputs1">Auteur</label>
         <input type="text" placeholder="Nice input" name="auteur" formControlName="auteur">
         <div>
+        <!--   Si le champ du formulaire est invalide tu affiches les erreurs. touch si on clique dans le champ. dirty s'il y'a une modification dans le champs -->
           @if (form.controls['auteur'].invalid && form.controls['auteur'].touched || form.controls['auteur'].dirty) {
+            <!-- affiche l'erreur lié au minlength dans le valdator fichier ts -->
+            @if (form.controls['auteur'].errors?.['interdit']) {
+              <div class="alert alert-danger w-25" role="alert"> Mot interdit</div>
+            }
             @if ( form.controls['auteur'].errors?.['minlength']) {
               <div class="alert alert-danger" role="alert"> trop court</div>
             }
+
+           
           }
         </div>
       </div>

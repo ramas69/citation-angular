@@ -1,7 +1,15 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { CitationService } from '../shared/citation.service';
 import { CommonModule } from '@angular/common';
+
+
+export const motsInterdit = ( control: AbstractControl):
+ValidationErrors | null => {
+  const mots = ["nabil", "mdr"]
+  return mots.includes(control.value) ? {interdit : " Ce mot est interdit " } : null
+}
+
 
 @Component({
   selector: 'app-create-reactive-citation',
@@ -10,15 +18,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './create-reactive-citation.component.html',
   styleUrl: './create-reactive-citation.component.css'
 })
+
+
 export class CreateReactiveCitationComponent {
 
   service = inject(CitationService)
   public form:FormGroup = new FormGroup ({
-    auteur: new FormControl('',  {validators: [Validators.required, Validators.minLength(8)]}),
-    citation: new FormControl('',  {validators: [Validators.required, Validators.minLength(4)]})
+    auteur: new FormControl('',  {validators: [Validators.required, Validators.minLength(8),motsInterdit ]}),
+    citation: new FormControl('',  {validators: [Validators.required, Validators.minLength(4), motsInterdit]})
     
   })
-
 
   onSubmit(){
     if(this.form.valid){
